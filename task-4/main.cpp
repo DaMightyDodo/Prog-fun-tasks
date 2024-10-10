@@ -1,7 +1,29 @@
 #include <iostream>
-
+#include <string>
+using namespace std;
 void main()
 {
+    int count_characters;
+    string text;
+    getline(cin, text);
+
+    cout << "****";
+    count_characters = text.length();
+    while (count_characters > 0)
+    {
+        cout << "*";
+        count_characters = count_characters - 1;
+    }
+
+    cout << "\n* " << text << " *" << endl;
+    
+    cout << "****";
+    count_characters = text.length();
+    while (count_characters > 0)
+    {
+        cout << "*";
+        count_characters = count_characters - 1;
+    }
     //For this challenge, produce a program which 
     //prompts the user for a string of text. When
     //this text is entered, the program should:

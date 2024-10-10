@@ -1,16 +1,39 @@
-#include <iostream>
+﻿#include <iostream>
+#include <string>
 
-void main()
-{
-    //Add code here to print out an ASCII art game header
-    //of your choice. Characters should be aligned correctly
-    //such that when the application is run, it prints out a legible
-    //ascii art game header.
-    //---
-    // Some useful resources:
-    //- https://patorjk.com/software/taag/
-    //- https://www.asciiart.eu/
+int main() {
+    std::string asciiArt = R"(
+              _______
+         ..-'`       ````---.
+       .'          ___ .'````.'SS'.
+      /        ..-SS####'.  /SSHH##'.
+     |       .'SSSHHHH##|/#/#HH#H####'.
+    /      .'SSHHHHH####/||#/: \SHH#####\
+   /      /SSHHHHH#####/!||;`___|SSHH###\
+-..__    /SSSHHH######.         \SSSHH###\
+`.'-.''--._SHHH#####.'           '.SH####/
+  '. ``'-  '/SH####`/_             `|H##/
+  | '.     /SSHH###|`'==.       .=='/\H|
+  |   `'-.|SHHHH##/\__\/        /\//|~|/
+  |    |S#|/HHH##/             |``  |
+  |    \H' |H#.'`              \    |
+  |        ''`|               -     /
+  |          /H\          .----    /
+  |         |H#/'.           `    /
+  |          \| | '..            /
+  |    ^~DLF   /|    ''..______.'
+   \          //\__    _..-. | 
+    \         ||   ````     \ |_
+     \    _.-|               \| |_
+     _\_.-'   `'''''-.        |   `--.
+ ''``    \            `''-;    \ /
+          \      .-'|     ````.' -
+          |    .'  `--'''''-.. |/
+          |  .'               \|
+          |.'
+)";
 
+    std::cout << asciiArt << std::endl;
 
-    //stuff
+    return 0;
 }
