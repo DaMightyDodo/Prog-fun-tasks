@@ -2,10 +2,10 @@
 using namespace std;
 void main()
 {
-    cout << "What number do you want to Square? \n";
     int number = 0;
+    cout << "What number do you want to Square? ";
     cin >> number;
-    cout << number << " squared is "<< number * number << ".";
+    cout << number << " squared is " << number * number << ".";
 
 
 
