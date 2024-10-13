@@ -5,6 +5,7 @@ void main()
 {
     int count_characters;
     string text;
+    cout << "Please input your wall of text: ";
     getline(cin, text);
 
     cout << "****";
