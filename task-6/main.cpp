@@ -1,9 +1,78 @@
-    #include "main.h"
-
+#include "main.h"
+#include <iostream>
 using namespace std;
-
 void main()
 {
+    int number = random(0, 100);
+    int guess = 69420;
+    int count = 0;
+    cout << number << endl;
+    cout << "I have generated a random whole number" << endl;
+    cout << "Guess the number from 0-100: ";
+    while (guess != number)
+    {
+        cin >> guess;
+        if (guess < 0 || guess > 100)
+        {
+            cout << "out of range, try again: ";
+            continue;
+        }
+        if (guess + 50 <= number || guess - 50 >= number)
+        {
+            cout << "\nFreezing" << endl;
+            cout << "Guess again: ";
+            count++;
+        }
+        else if (guess + 35 <= number || guess - 35 >= number)
+        {
+            cout << "\nColder" << endl;
+            cout << "Guess again: ";
+            count++;
+        }
+        else if (guess + 25 <= number || guess - 25 >= number)
+        {
+            cout << "\nCold" << endl;
+            cout << "Guess again: ";
+            count++;
+        }
+        else if (guess + 15 <= number || guess - 15 >= number)
+        {
+            cout << "\nWarm" << endl;
+            cout << "Guess again: ";
+            count++;
+        }
+        else if (guess + 5 <= number || guess - 5 >= number)
+        {
+            cout << "\nHot" << endl;
+            cout << "Guess again: ";
+            count++;
+        }
+        else if (guess + 2 <= number || guess - 2 >= number)
+        {
+            cout << "\nBoiling" << endl;
+            cout << "Guess again: ";
+            count++;
+        }
+        else if (guess + 1 <= number || guess - 1 >= number)
+        {
+            cout << "\nBoiling" << endl;
+            cout << "Guess again: ";
+            count++;
+        }
+
+
+    }
+    count++;
+    if (count == 1)
+    {
+        cout << "You are on FIRE!! You've guessed correctly first try!!!";
+    }
+    else
+    {
+        cout << "Congrats! You guessed it in " << count << " tries!!";
+    }
+
+}
     //The code in this file has been produced to show you how to seed
     //a random number generator, and use it. In main.h, we are using
     //C++'s <random> library to generate random numbers.
@@ -33,7 +102,3 @@ void main()
 
     //At the end of the program, it should also display the number of guesses
     //the player needed to guess the value in.     
-
-    cout << "Here is a random number between 1 and 10: " << random(1, 10) << endl;
-    cout << "And here is one between -3 and -5: " << random(-3, -5) << endl;
-}
