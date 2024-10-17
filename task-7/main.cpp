@@ -4,11 +4,20 @@ using namespace std;
 void main()
 {
 	int PlayerChoose = 0;
-	string character[3] = { "Spearman","Knight","Archer" };
+	struct
+	{
+		string Name;
+		string Class[3] = { "Spearman","Knight","Archer" };
+	}PlayerDetail;
 	cout << "Choose your character: \n 1. Spearman \n 2. Knight \n 3. Archer\n";
 	cin >> PlayerChoose;
-	cout << "You have selected the " << character[PlayerChoose - 1] << " character class.";
-	cout << "\n "
+	cout << "You have selected the " << PlayerDetail.Class[PlayerChoose - 1] << " character class.";
+	cout << "\n Traveler, state your name: ";
+	cin >> PlayerDetail.Name;
+	cout << "Player details:" << endl;
+	cout << "- Name:" << PlayerDetail.Name << endl;
+	cout << "- Class:" << PlayerDetail.Class[PlayerChoose - 1] << endl;
+
 }
 //Using structs and arrays, build a character class and name selection system
    //for a text-based game. The program should firstly prompt the user for a class
