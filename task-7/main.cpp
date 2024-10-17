@@ -15,8 +15,8 @@ void main()
 	cout << "\n Traveler, state your name: ";
 	cin >> PlayerDetail.Name;
 	cout << "Player details:" << endl;
-	cout << "- Name:" << PlayerDetail.Name << endl;
-	cout << "- Class:" << PlayerDetail.Class[PlayerChoose - 1] << endl;
+	cout << "- Name: " << PlayerDetail.Name << endl;
+	cout << "- Class: " << PlayerDetail.Class[PlayerChoose - 1] << endl;
 
 }
 //Using structs and arrays, build a character class and name selection system
