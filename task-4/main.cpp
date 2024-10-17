@@ -7,8 +7,7 @@ void MakeBox()
     string text;
     cout << "Please input your wall of text: ";
     getline(cin, text);
-    cout << "****";
-    count_characters = text.length();
+    count_characters = text.length() + 4;
     while (count_characters > 0)
     {
         cout << "*";
@@ -17,8 +16,7 @@ void MakeBox()
 
     cout << "\n* " << text << " *" << endl;
 
-    cout << "****";
-    count_characters = text.length();
+    count_characters = text.length() + 4;
     while (count_characters > 0)
     {
         cout << "*";
