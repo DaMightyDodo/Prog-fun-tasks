@@ -6,7 +6,6 @@ void main()
     int number = random(0, 100);
     int guess = 69420;
     int count = 0;
-    cout << number << endl;
     cout << "I have generated a random whole number" << endl;
     cout << "Guess the number from 0-100: ";
     while (guess != number)

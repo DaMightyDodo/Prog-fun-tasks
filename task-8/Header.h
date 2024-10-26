@@ -3,10 +3,15 @@
 #include <vector>
 using namespace std;
 vector<string> inventory;
-int view()
+int n = 0;
+void view(int slot)
 {
-	for (int i = 0; i < 5; i++)
+	cout << inventory[slot] << endl;
+}
+void show_all()
+{
+	for (int i = 0; i < n; i++)
 	{
-		cout << inventory[i] << "\n";
+		cout << inventory[i] << endl;
 	}
 }

@@ -1,14 +1,23 @@
 #include <iostream>
+#include <string>
 #include "Header.h"
 using namespace std;
 
-void main()
+int main()
 {
-	int n = 0;
+
+	string command = "";
 	cout << "Please enter inventory size " << endl;
 	cin >> n;
 	inventory.resize(n);
+	cout << "Inventory size set to " << n << endl;
+	cout << "Type an action: ";
+	getline(cin, command)
+	if (command == "view")
+	{
 		
+	}
+
 }
 
 
