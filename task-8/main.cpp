@@ -12,11 +12,15 @@ int main()
 	inventory.resize(n);
 	cout << "Inventory size set to " << n << endl;
 	cout << "Type an action: ";
-	getline(cin, command);
-	if (command == "view")
+	bool flag = true;
+	do
 	{
-		
-	}
+		getline(cin, command);
+		if (command == "show_all")
+		{
+			show_all();
+		}
+	} while (flag);
 
 }
 
