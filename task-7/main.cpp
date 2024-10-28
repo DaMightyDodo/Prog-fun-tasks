@@ -3,15 +3,19 @@
 using namespace std;
 void main()
 {
-	int PlayerChoose = 0;
+	int PlayerChoose = 69;
 	struct
 	{
 		string Name;
 		string Class[3] = { "Spearman","Knight","Archer" };
 	}PlayerDetail;
-	cout << "Choose your character: \n 1. Spearman \n 2. Knight \n 3. Archer\n";
-	cin >> PlayerChoose;
-	cout << "You have selected the " << PlayerDetail.Class[PlayerChoose - 1] << " character class.";
+	do
+	{
+		cout << "Choose your character: \n 1. " << PlayerDetail.Class[0] << "\n 2. " << PlayerDetail.Class[1] << "\n 3. " << PlayerDetail.Class[2] << "\n";
+		cin >> PlayerChoose;
+		cout << "You have selected the " << PlayerDetail.Class[PlayerChoose - 1] << " character class. " << endl;
+		return;
+	} while (PlayerChoose != sizeof(PlayerDetail.Class) / sizeof(PlayerDetail.Class[0]));
 	cout << "\n Traveler, state your name: ";
 	cin >> PlayerDetail.Name;
 	cout << "Player details:" << endl;
