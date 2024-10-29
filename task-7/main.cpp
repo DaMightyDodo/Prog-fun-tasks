@@ -1,21 +1,33 @@
 #include <iostream>
 #include <string>
+#include <limits>
 using namespace std;
 void main()
 {
-	int PlayerChoose = 69;
+	int PlayerChoose = 0;
 	struct
 	{
 		string Name;
 		string Class[3] = { "Spearman","Knight","Archer" };
 	}PlayerDetail;
-	do
-	{
-		cout << "Choose your character: \n 1. " << PlayerDetail.Class[0] << "\n 2. " << PlayerDetail.Class[1] << "\n 3. " << PlayerDetail.Class[2] << "\n";
-		cin >> PlayerChoose;
-		cout << "You have selected the " << PlayerDetail.Class[PlayerChoose - 1] << " character class. " << endl;
-		return;
-	} while (PlayerChoose != sizeof(PlayerDetail.Class) / sizeof(PlayerDetail.Class[0]));
+
+	cout << "Choose your character: \n 1. " << PlayerDetail.Class[0] << "\n 2. " << PlayerDetail.Class[1] << "\n 3. " << PlayerDetail.Class[2] << "\n";
+
+	while (true)
+	{ 
+		std::cin >> PlayerChoose;
+		if (cin.fail() || PlayerChoose < 1 || PlayerChoose > 3) 
+		{
+			cout << "Invalid input, try again: " << endl;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+		else 
+		{
+			break;
+		}
+	}
+	cout << "You have selected the " << PlayerDetail.Class[PlayerChoose - 1] << " character class. " << endl;
 	cout << "\n Traveler, state your name: ";
 	cin >> PlayerDetail.Name;
 	cout << "Player details:" << endl;
