@@ -1,29 +1,52 @@
 #include <iostream>
 #include <string>
-#include "Header.h"
+#include <vector>
+using namespace std;
+string item[4] = { "Empty", "Shield","Potion", "Gloves" };
+string command;
+string slot;
+vector<string> inventory;
+int n = 0;
 int main()
 {
-	string item[4] = {"Empty", "Shield","Potion", "Gloves"};
-	string command;
+
 	cout << "Please enter inventory size " << endl;
 	cin >> n;
 	inventory.resize(n);
+	inventory[0] = item[0];
+	cin.ignore();
 	cout << "Inventory size set to " << n << endl;
 	cout << "Type an action: ";
+
 	while (true)
 	{
 		getline(cin, command);
 		if (command == "show_all")
 		{
-			show_all();
+			for (int i = 0; i < n; i++)
+			{
+				cout << inventory[i] << endl;
+			}
 		}
-		if (command == "view" + )
+		if (command == "items")
 		{
-			show_all();
+			for (int i = 0; i < sizeof(item) / sizeof(item[0]) ; i++)
+			{
+				cout << item[i] << endl;
+			}
+		}
+		if (command.substr(0, 4) == "view")
+		{
+			slot = command.substr(5);
+			cout << inventory[stoi(slot)];
 		}
 	}
-
+	//inventory.resize(input);
+	// for(int i = 0; i < inventory max length; i++
+	// inventory[i] = "empty;
+	// int inventory[input] = {"empty"};
 }
+
 
 
 //In this challenge, you should build an inventory system using a dynamically
