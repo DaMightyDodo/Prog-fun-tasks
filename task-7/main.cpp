@@ -12,10 +12,9 @@ void main()
 	}PlayerDetail;
 
 	cout << "Choose your character: \n 1. " << PlayerDetail.Class[0] << "\n 2. " << PlayerDetail.Class[1] << "\n 3. " << PlayerDetail.Class[2] << "\n";
-
 	while (true)
 	{ 
-		std::cin >> PlayerChoose;
+		cin >> PlayerChoose;
 		if (cin.fail() || PlayerChoose < 1 || PlayerChoose > 3) 
 		{
 			cout << "Invalid input, try again: " << endl;

@@ -4,7 +4,7 @@
 using namespace std;
 vector<string> inventory;
 int n = 0;
-void view(int slot)
+void view()
 {
 	cout << inventory[slot] << endl;
 }

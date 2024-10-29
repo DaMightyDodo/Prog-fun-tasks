@@ -1,26 +1,27 @@
 #include <iostream>
 #include <string>
 #include "Header.h"
-using namespace std;
-
 int main()
 {
-
-	string command = "";
+	string item[4] = {"Empty", "Shield","Potion", "Gloves"};
+	string command;
 	cout << "Please enter inventory size " << endl;
 	cin >> n;
 	inventory.resize(n);
 	cout << "Inventory size set to " << n << endl;
 	cout << "Type an action: ";
-	bool flag = true;
-	do
+	while (true)
 	{
 		getline(cin, command);
 		if (command == "show_all")
 		{
 			show_all();
 		}
-	} while (flag);
+		if (command == "view" + )
+		{
+			show_all();
+		}
+	}
 
 }
 
