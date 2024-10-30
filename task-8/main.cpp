@@ -2,24 +2,45 @@
 #include <string>
 #include <vector>
 using namespace std;
-string item[4] = { "Empty", "Shield","Potion", "Gloves" };
+string item[6] = { "Empty", "Shield","Red Potion", "NES Power Gloves", "Zweihander", "Hunter Pistol"};
 string command;
-string slot;
+int slot;
 vector<string> inventory;
 int n = 0;
 int main()
 {
+	while (true)
+	{
+		cout << "Please enter inventory size (1-8) " << endl;
+		cin >> n;
+		if (cin.fail() || n < 1 || n > 8)
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "Invalid" << endl;
+		}
+		else
+		{
+			for (int i = 0; i < n; i++) 
+			{
+				inventory.push_back("Empty");
+			}
+			break;
+		}
+	}
 
-	cout << "Please enter inventory size " << endl;
-	cin >> n;
-	inventory.resize(n);
-	inventory[0] = item[0];
 	cin.ignore();
 	cout << "Inventory size set to " << n << endl;
-	cout << "Type an action: ";
+	cout << "view <number>" << endl;
+	cout << "show_all" << endl;
+	cout << "set <index> <item_id>" << endl;
+	cout << "items" << endl;
+	cout << "exit" << endl;
+	
 
 	while (true)
 	{
+		cout << "\nType a command: ";
 		getline(cin, command);
 		if (command == "show_all")
 		{
@@ -28,17 +49,48 @@ int main()
 				cout << inventory[i] << endl;
 			}
 		}
-		if (command == "items")
+		else if (command == "items")
 		{
 			for (int i = 0; i < sizeof(item) / sizeof(item[0]) ; i++)
 			{
 				cout << item[i] << endl;
 			}
 		}
-		if (command.substr(0, 4) == "view")
+		else if (command.substr(0, 4) == "view")
 		{
-			slot = command.substr(5);
-			cout << inventory[stoi(slot)];
+			slot = stoi(command.substr(5));
+			if (slot >= 0 && slot < n)
+			{
+				cout << inventory[slot];
+			}
+			else
+			{
+				cout << "Invalid index" << endl;
+			}
+		}
+		else if (command.substr(0, 3) == "set")
+		{
+			int spaceIndex = command.find(' ', 4);
+			slot = stoi(command.substr(4, spaceIndex - 4));
+			int itemId = stoi(command.substr(spaceIndex + 1));
+
+			if (slot >= 0 && slot < n && itemId >= 0 && itemId < (sizeof(item) / sizeof(item[0])))
+			{
+				inventory[slot] = item[itemId];
+				cout << "Set slot " << slot << " to " << inventory[slot] << endl;
+			}
+			else
+			{
+				cout << "invalid index or item ID" << endl;
+			}
+		}
+		else if (command == "exit")
+		{
+			break;
+		}
+		else
+		{
+			cout << "invalid command" << endl;
 		}
 	}
 	//inventory.resize(input);
