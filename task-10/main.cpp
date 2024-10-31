@@ -1,9 +1,35 @@
 #include <iostream>
 #include <string>
 using namespace std;
-void main()
+struct AssessmentComponent
 {
-
+	float grade;
+	float weight;
+};
+char CRGBand(double percentage)
+{
+    if (percentage >= 70) {
+        return 'A';
+    }
+    else if (percentage >= 60) {
+        return 'B';
+    }
+    else if (percentage >= 50) {
+        return 'C';
+    }
+    else if (percentage >= 40) {
+        return ;
+    }
+    else {
+        return "Fail (Below 40%)";
+    }
+}
+int main()
+{
+	AssessmentComponent assessment1[10];
+	AssessmentComponent assessment2[];
+    
+	
 }
 //Add code to build a grade calculator for the module. This should:
 //
