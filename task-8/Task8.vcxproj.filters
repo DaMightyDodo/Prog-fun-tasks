@@ -13,9 +13,4 @@
       <UniqueIdentifier>{ccd06268-0bb5-4c24-bfca-ee73194de896}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Header.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
 </Project>
