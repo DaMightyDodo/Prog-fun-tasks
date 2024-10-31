@@ -2,7 +2,12 @@
 #include <string>
 #include <vector>
 using namespace std;
-string item[6] = { "Empty", "Shield","Red Potion", "NES Power Gloves", "Zweihander", "Hunter Pistol"};
+struct Item
+{
+	int ID;
+	string name;
+};
+Item items[6] = { 0, "Empty" , 1, "Red Potion", 2, "Hylian Shield", 3, "NES Power Gloves", 4, "Zweihander", 5, "Hunter Pistol" };
 string command;
 int slot;
 vector<string> inventory;
@@ -51,9 +56,9 @@ int main()
 		}
 		else if (command == "items")
 		{
-			for (int i = 0; i < sizeof(item) / sizeof(item[0]) ; i++)
+			for (int i = 0; i < sizeof(items) / sizeof(items[0]) ; i++)
 			{
-				cout << item[i] << endl;
+				cout << items[i].ID << ". " << items[i].name << endl;
 			}
 		}
 		else if (command.substr(0, 4) == "view")
@@ -74,9 +79,9 @@ int main()
 			slot = stoi(command.substr(4, spaceIndex - 4));
 			int itemId = stoi(command.substr(spaceIndex + 1));
 
-			if (slot >= 0 && slot < n && itemId >= 0 && itemId < (sizeof(item) / sizeof(item[0])))
+			if (slot >= 0 && slot < n && itemId >= 0 && itemId < (sizeof(items) / sizeof(items[0])))
 			{
-				inventory[slot] = item[itemId];
+				inventory[slot] = items[itemId].name;
 				cout << "Set slot " << slot << " to " << inventory[slot] << endl;
 			}
 			else
@@ -93,10 +98,6 @@ int main()
 			cout << "invalid command" << endl;
 		}
 	}
-	//inventory.resize(input);
-	// for(int i = 0; i < inventory max length; i++
-	// inventory[i] = "empty;
-	// int inventory[input] = {"empty"};
 }
 
 
