@@ -1,5 +1,16 @@
 #pragma once
+#include <iostream>
+using namespace std;
+struct Vector2
+{
+	float x;
+	float y;
+};
 
+float GetDistanceBetweenPoints(float x1, float y1, float x2, float y2)
+{
+	return sqrtf(powf(x2 - x1, 2) + powf(y2 - y1, 2));
+};
 
 
 //TODO: Build Vector2 structure
