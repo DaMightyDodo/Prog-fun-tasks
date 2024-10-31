@@ -1,77 +1,124 @@
 #include "main.h"
-#include <iostream>
 using namespace std;
-void main()
-{
+int main() {
     int number = random(0, 100);
-    int guess = 69420;
+    float guess = 420;
     int count = 0;
-    cout << "I have generated a random whole number" << endl;
+    int range[] = { 2, 5, 10, 15, 25, 35, 50 };
+    string feedback[] = { "Boiling", "Hot","Warmer","Warm","Cold","Colder","Freezing" };
+
+    cout << "I have generated a random whole number." << endl;
     cout << "Guess the number from 0-100: ";
     while (guess != number)
     {
         cin >> guess;
-        if (guess < 0 || guess > 100)
-        {
-            cout << "out of range, try again: ";
+        if (cin.fail() || guess < 0 || guess > 100) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input/out of range, try again: ";
             continue;
         }
-        if (guess + 50 <= number || guess - 50 >= number)
+        count++;
+        int difference = abs(guess - number);
+        if (difference == 0)
         {
-            cout << "\nFreezing" << endl;
-            cout << "Guess again: ";
-            count++;
+            break;
         }
-        else if (guess + 35 <= number || guess - 35 >= number)
+        for (int i = 0; i < sizeof(range) / sizeof(range[0]); i++)
         {
-            cout << "\nColder" << endl;
-            cout << "Guess again: ";
-            count++;
+            if (difference <= range[i])
+            {
+                cout << "\n" << feedback[i] << endl;
+                break;
+            }
         }
-        else if (guess + 25 <= number || guess - 25 >= number)
+        if (difference > 50)
         {
-            cout << "\nCold" << endl;
-            cout << "Guess again: ";
-            count++;
+            cout << "Freezing" << endl;
         }
-        else if (guess + 15 <= number || guess - 15 >= number)
-        {
-            cout << "\nWarm" << endl;
-            cout << "Guess again: ";
-            count++;
-        }
-        else if (guess + 5 <= number || guess - 5 >= number)
-        {
-            cout << "\nHot" << endl;
-            cout << "Guess again: ";
-            count++;
-        }
-        else if (guess + 2 <= number || guess - 2 >= number)
-        {
-            cout << "\nBoiling" << endl;
-            cout << "Guess again: ";
-            count++;
-        }
-        else if (guess + 1 <= number || guess - 1 >= number)
-        {
-            cout << "\nBoiling" << endl;
-            cout << "Guess again: ";
-            count++;
-        }
-
-
+        cout << "Guess again: ";
     }
-    count++;
+
     if (count == 1)
     {
-        cout << "You are on FIRE!! You've guessed correctly first try!!!";
+        cout << "You are on FIRE!! You've guessed correctly first try!!!" << endl;
     }
     else
     {
-        cout << "Congrats! You guessed it in " << count << " tries!!";
+        cout << "Congrats! You guessed it in " << count << " tries!!" << endl;
     }
-
+    return 0;
 }
+
+//int main() {
+//    int number = random(0, 100);
+//    float guess = 420;
+//    int count = 0;
+//
+//    cout << "I have generated a random whole number." << endl;
+//    cout << number << endl;
+//    cout << "Guess the number from 0-100: ";
+//
+//    int ranges[] = { 2, 5, 10, 15, 25, 35, 50 };
+//    string hints[] = { "Boiling", "Hot","Warmer","Warm","Cold","Colder","Freezing"};
+//    while (guess != number) {
+//        cin >> guess;
+//
+//        if (cin.fail() || guess < 0 || guess > 100) {
+//            cin.clear();
+//            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+//            cout << "Invalid input/out of range, try again: ";
+//            continue;
+//        }
+//        count++;
+//
+//        int difference = abs(guess - number);
+//        if (difference == 0)
+//        {
+//            break;
+//        }
+//        else if (difference <= 2)
+//        {
+//            cout << "\nBoiling" << endl;
+//        }
+//        else if (difference <= 5)
+//        {
+//            cout << "\nHot" << endl;
+//        }
+//        else if (difference <= 10)
+//        {
+//            cout << "\nWarmer" << endl;
+//        }
+//        else if (difference <= 15)
+//        {
+//            cout << "\nWarm" << endl;
+//        }
+//        else if (difference <= 25)
+//        {
+//            cout << "\nCold" << endl;
+//        }
+//        else if (difference <= 35)
+//        {
+//            cout << "\nColder" << endl;
+//        }
+//        else
+//        {
+//            cout << "\nFreezing" << endl;
+//        }
+//
+//        cout << "Guess again: ";
+//    }
+//
+//    if (count == 1)
+//    {
+//        cout << "You are on FIRE!! You've guessed correctly first try!!!" << endl;
+//    }
+//    else 
+//    {
+//        cout << "Congrats! You guessed it in " << count << " tries!!" << endl;
+//    }
+//    return 0;
+//}
     //The code in this file has been produced to show you how to seed
     //a random number generator, and use it. In main.h, we are using
     //C++'s <random> library to generate random numbers.
