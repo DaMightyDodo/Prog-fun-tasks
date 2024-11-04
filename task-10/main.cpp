@@ -7,48 +7,81 @@ struct Assessment
 {
     vector<string> ComponentName;
     vector<float> ComponentGrade;
-    // maybe no weighting because it's already 50% for both
+    vector<float> Weighting; //multiply with ComponentGrade
 }Assessment1,Assessment2;
-char CRGBand(double percentage)
+string CRGBand(double percentage)
 {
     if (percentage >= 70) {
-        return 'A';
+        return "FIRST";
     }
     else if (percentage >= 60) {
-        return 'B';
+        return "2.1";
     }
     else if (percentage >= 50) {
-        return 'C';
+        return "2.2";
     }
     else if (percentage >= 40) {
-        return 'D';
+        return "THIRD";
     }
     else {
-        return 'F';
+        return "FAIL";
     }
 }
 int main()
 {
     Assessment1.ComponentName = { "C++ Portfolio", "Reflective Journal" };
     Assessment1.ComponentGrade.resize(Assessment1.ComponentName.size());  //this is better than doing division with bits
+    Assessment1.Weighting = { 0.7f,0.3f };
     for (int i = 0; i < Assessment1.ComponentName.size(); i++)
     {
-        cout << "Enter grade for " << "Assessment 1 " << Assessment1.ComponentName[i] << ": " << endl;
-        cin >> Assessment1.ComponentGrade[i];
+        while (true)
+        {
+            cout << "Enter grade for " << "Assessment 1 " << Assessment1.ComponentName[i] << ": " << endl;
+            cin >> Assessment1.ComponentGrade[i];
+
+            if (cin.fail() || Assessment1.ComponentGrade[i] < 0 || Assessment1.ComponentGrade[i] > 100)
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Invalid" << endl;
+            }
+            else
+            {
+                cin.ignore();
+                Assessment1.ComponentGrade[i] = Assessment1.ComponentGrade[i] * Assessment1.Weighting[i];
+                break;
+            }
+        }
     }
+
     float percent1 = accumulate(Assessment1.ComponentGrade.begin(), Assessment1.ComponentGrade.end(), 0.0);
     float weight1 = percent1 * 0.5;
 
     cout << "Total percent for Ass1 is: " << percent1 << "%" << endl;
     cout << "Your weighting for Ass1 is: " << weight1 << "%" << endl;
 
-
     Assessment2.ComponentName = { "Game Artefact", "Code Quality and Best Practices", "Programming Techniques" };
     Assessment2.ComponentGrade.resize(Assessment2.ComponentName.size());
+    Assessment2.Weighting = { 0.6f,0.2f,0.2f };
     for (int i = 0; i < Assessment2.ComponentName.size(); i++)
     {
-        cout << "Enter grade for " << "Assessment 2 " << Assessment2.ComponentName[i] << ": " << endl;
-        cin >> Assessment2.ComponentGrade[i];
+        while (true)
+        {
+            cout << "Enter grade for " << "Assessment 2 " << Assessment2.ComponentName[i] << ": " << endl;
+            cin >> Assessment2.ComponentGrade[i];
+            if (cin.fail() || Assessment2.ComponentGrade[i] < 0 || Assessment2.ComponentGrade[i] > 100)
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Invalid" << endl;
+            }
+            else
+            {
+                cin.ignore();
+                Assessment2.ComponentGrade[i] = Assessment2.ComponentGrade[i] * Assessment2.Weighting[i];
+                break;
+            }
+        }
     }
     float percent2 = accumulate(Assessment2.ComponentGrade.begin(), Assessment2.ComponentGrade.end(), 0.0);
     float weight2 = percent2 * 0.5;
