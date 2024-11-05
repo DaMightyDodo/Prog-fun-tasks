@@ -9,7 +9,7 @@ struct Assessment
     vector<float> ComponentGrade;
     vector<float> Weighting; //multiply with ComponentGrade
 }Assessment1,Assessment2;
-string CRGBand(double percentage)
+string CRGBand(float percentage)
 {
     if (percentage >= 70) {
         return "FIRST";
@@ -56,8 +56,8 @@ int main()
 
     float percent1 = accumulate(Assessment1.ComponentGrade.begin(), Assessment1.ComponentGrade.end(), 0.0);
     float weight1 = percent1 * 0.5;
-
     cout << "Total percent for Ass1 is: " << percent1 << "%" << endl;
+    cout << "I rank your Ass1: " << CRGBand(percent1) << endl;
     cout << "Your weighting for Ass1 is: " << weight1 << "%" << endl;
 
     Assessment2.ComponentName = { "Game Artefact", "Code Quality and Best Practices", "Programming Techniques" };
@@ -87,6 +87,7 @@ int main()
     float weight2 = percent2 * 0.5;
     
     cout << "Total percent for Ass2 is: " << percent2 << "%" << endl;
+    cout << "I rank your Ass2: " << CRGBand(percent2) << endl;
     cout << "Your weighting for Ass2 is: " << weight2 << "%\n" << endl;
     float totalWeight = weight1 + weight2;
     cout << "Final weighting for both Ass is: " << totalWeight << '%' << endl;
