@@ -2,7 +2,7 @@
 using namespace std;
 int main() {
     int number = random(0, 100);
-    float guess = 420;
+    float guess = 420; //just something out of range
     int count = 0;
     int range[] = { 2, 5, 10, 15, 25, 35, 50 };
     string feedback[] = { "Boiling", "Hot","Warmer","Warm","Cold","Colder","Freezing" };
@@ -14,7 +14,7 @@ int main() {
         cin >> guess;
         if (cin.fail() || guess < 0 || guess > 100) {
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');  //geeksforgeeks stuff I found that fix everything
             cout << "Invalid input/out of range, try again: ";
             continue;
         }
