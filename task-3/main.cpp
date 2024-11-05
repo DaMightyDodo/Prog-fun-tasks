@@ -7,12 +7,6 @@ void main()
     cin >> number;
     cout << number << " squared is " << number * number << ".";
 
-
-
-
-
-
-
     //Add code to prompt a user for a single number, and then show
     //the square of that number. For example, imagine the session:
 
