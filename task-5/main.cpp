@@ -1,14 +1,35 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 using namespace std;
 
 int main() 
 {
     string sentence;
-    cout << "Please enter some text: ";
-    getline(cin, sentence);
+    bool hasAlpha;
+    do 
+    {
+        cout << "Please enter some text: ";
+        getline(cin, sentence);
+        //I found this shorter solution but looks unorthodox...
+        //hasAlpha = sentence.find_first_of("abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWXYZ") != string::npos;
+        hasAlpha = false;
+        for (char c : sentence)
+        {
 
-    for (size_t i = 0; i < sentence.length(); ++i)
+            if (isalpha(c))
+            {
+                hasAlpha = true;
+                break;
+            }
+        }
+        if (!hasAlpha)
+        {
+            cout << "Must contain at least 1 alphabetical character." << endl;
+        }
+    } while (!hasAlpha);
+
+    for (size_t i = 0; i < sentence.length(); ++i) // Capitalize after period
     {
         if (sentence[i] == '.') 
         {
@@ -26,12 +47,12 @@ int main()
 
     cout << sentence << endl;
     
-    for (size_t i = 0; i < sentence.length(); ++i)
+    for (size_t i = 0; i < sentence.length(); ++i) //anti-caplock
     {
         sentence[i] = tolower(sentence[i]);
     }
     cout << sentence << endl;
-    for (size_t i = 0; i < sentence.length(); ++i)
+    for (size_t i = 0; i < sentence.length(); ++i) //caplock everything
     {
         sentence[i] = toupper(sentence[i]);
     }
