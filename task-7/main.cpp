@@ -2,7 +2,7 @@
 #include <string>
 #include <limits>
 using namespace std;
-void main()
+int main()
 {
 	int PlayerChoose = 0;
 	struct
@@ -37,7 +37,7 @@ void main()
 	cout << "Player details:" << endl;
 	cout << "- Name: " << PlayerDetail.Name << endl;
 	cout << "- Class: " << PlayerDetail.Class[PlayerChoose - 1] << endl;
-
+	return 0;
 }
 //Using structs and arrays, build a character class and name selection system
    //for a text-based game. The program should firstly prompt the user for a class
