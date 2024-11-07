@@ -56,9 +56,9 @@ int main()
 
     float percent1 = accumulate(Assessment1.ComponentGrade.begin(), Assessment1.ComponentGrade.end(), 0.0);
     float weight1 = percent1 * 0.5;
-    cout << "Total percent for Ass1 is: " << percent1 << "%" << endl;
-    cout << "I rank your Ass1: " << CRGBand(percent1) << endl;
-    cout << "Your weighting for Ass1 is: " << weight1 << "%" << endl;
+    cout << "Total percent for Assignment 1 is: " << percent1 << "%" << endl;
+    cout << "Your CRGBand for Assignment 1: " << CRGBand(percent1) << endl;
+    cout << "Your weighting for Assignment 1 is: " << weight1 << "%" << endl;
 
     Assessment2.ComponentName = { "Game Artefact", "Code Quality and Best Practices", "Programming Techniques" };
     Assessment2.ComponentGrade.resize(Assessment2.ComponentName.size());
@@ -86,12 +86,12 @@ int main()
     float percent2 = accumulate(Assessment2.ComponentGrade.begin(), Assessment2.ComponentGrade.end(), 0.0);
     float weight2 = percent2 * 0.5;
     
-    cout << "Total percent for Ass2 is: " << percent2 << "%" << endl;
-    cout << "I rank your Ass2: " << CRGBand(percent2) << endl;
-    cout << "Your weighting for Ass2 is: " << weight2 << "%\n" << endl;
+    cout << "Total percent for Assignment 2 is: " << percent2 << "%" << endl;
+    cout << "Your CRGBand for Assignment 2: " << CRGBand(percent2) << endl;
+    cout << "Your weighting for Assignment 2 is: " << weight2 << "%\n" << endl;
     float totalWeight = weight1 + weight2;
-    cout << "Final weighting for both Ass is: " << totalWeight << '%' << endl;
-    cout << "You belong to rank: " << CRGBand(totalWeight) << endl;
+    cout << "Final weighting for both Assignment is: " << totalWeight << '%' << endl;
+    cout << "Your CRGBand for the final project is: " << CRGBand(totalWeight) << endl;
 }
 //Add code to build a grade calculator for the module. This should:
 //
