@@ -20,8 +20,8 @@ int main()
     Vector2b.x = xComponents[1];
     Vector2b.y = yComponents[1];
 
-    cout << "(" << Vector2a.x << "," << Vector2a.y << ")" << endl;
-    cout << "(" << Vector2b.x << "," << Vector2b.y << ")" << endl;
+    cout << '('<< Vector2a.x << ',' << Vector2a.y << ')' << endl;
+    cout << '(' << Vector2b.x << ',' << Vector2b.y << ')' << endl;
 
     cout << "The distance between two points is: "<< GetDistanceBetweenPoints(Vector2a, Vector2b) << endl;
 
