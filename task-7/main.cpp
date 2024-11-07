@@ -8,14 +8,19 @@ void main()
 	struct
 	{
 		string Name;
-		string Class[3] = { "Spearman","Knight","Archer" };
+		int ID[4] = { 1,2,3,4 };
+		string Class[4] = {"Spearman","Knight","Archer","Hunter"};
 	}PlayerDetail;
 
-	cout << "Choose your character: \n 1. " << PlayerDetail.Class[0] << "\n 2. " << PlayerDetail.Class[1] << "\n 3. " << PlayerDetail.Class[2] << "\n";
+	cout << "Choose your character: " << endl;
+		for (int i = 0; i < sizeof(PlayerDetail.Class) / sizeof(PlayerDetail.Class[0]); i++)
+		{
+			cout << PlayerDetail.ID[i] << ". " << PlayerDetail.Class[i] << endl;
+		}
 	while (true)
 	{ 
 		cin >> PlayerChoose;
-		if (cin.fail() || PlayerChoose < 1 || PlayerChoose > 3) 
+		if (cin.fail() || PlayerChoose < 1 || PlayerChoose > sizeof(PlayerDetail.Class) / sizeof(PlayerDetail.Class[0]))
 		{
 			cout << "Invalid input, try again: " << endl;
 			cin.clear();
