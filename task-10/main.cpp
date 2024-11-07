@@ -29,6 +29,7 @@ string CRGBand(float percentage)
 }
 int main()
 {
+    //First Assignment
     Assessment1.ComponentName = { "C++ Portfolio", "Reflective Journal" };
     Assessment1.ComponentGrade.resize(Assessment1.ComponentName.size());  //this is better than doing division with bits
     Assessment1.Weighting = { 0.7f,0.3f };
@@ -53,13 +54,14 @@ int main()
             }
         }
     }
-
+    //Grades first Assignment
     float percent1 = accumulate(Assessment1.ComponentGrade.begin(), Assessment1.ComponentGrade.end(), 0.0);
     float weight1 = percent1 * 0.5;
+
     cout << "Total percent for Assignment 1 is: " << percent1 << "%" << endl;
     cout << "Your CRGBand for Assignment 1: " << CRGBand(percent1) << endl;
     cout << "Your weighting for Assignment 1 is: " << weight1 << "%" << endl;
-
+    //Second Assignment
     Assessment2.ComponentName = { "Game Artefact", "Code Quality and Best Practices", "Programming Techniques" };
     Assessment2.ComponentGrade.resize(Assessment2.ComponentName.size());
     Assessment2.Weighting = { 0.6f,0.2f,0.2f };
@@ -83,12 +85,15 @@ int main()
             }
         }
     }
+    //Grades Second Assignment
     float percent2 = accumulate(Assessment2.ComponentGrade.begin(), Assessment2.ComponentGrade.end(), 0.0);
     float weight2 = percent2 * 0.5;
     
     cout << "Total percent for Assignment 2 is: " << percent2 << "%" << endl;
     cout << "Your CRGBand for Assignment 2: " << CRGBand(percent2) << endl;
     cout << "Your weighting for Assignment 2 is: " << weight2 << "%\n" << endl;
+
+    //Total grades
     float totalWeight = weight1 + weight2;
     cout << "Final weighting for both Assignment is: " << totalWeight << '%' << endl;
     cout << "Your CRGBand for the final project is: " << CRGBand(totalWeight) << endl;
