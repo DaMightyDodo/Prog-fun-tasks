@@ -8,16 +8,16 @@ void MakeBox()
     cout << "Please input your wall of text: ";
     getline(cin, text);
     count_characters = text.length() + 4;
-    while (count_characters > 0)
+    while (count_characters > 0) //top border
     {
         cout << "*";
         count_characters = count_characters - 1;
     }
 
-    cout << "\n* " << text << " *" << endl;
+    cout << "\n* " << text << " *" << endl; //the text and sideway border
 
     count_characters = text.length() + 4;
-    while (count_characters > 0)
+    while (count_characters > 0) //bottom border
     {
         cout << "*";
         count_characters = count_characters - 1;
@@ -26,6 +26,7 @@ void MakeBox()
     int main()
     {
         MakeBox();
+        return 0;
     }
 //For this challenge, produce a program which 
 //prompts the user for a string of text. When
