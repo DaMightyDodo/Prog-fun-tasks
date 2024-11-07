@@ -5,11 +5,11 @@ struct Vector2
 {
 	float x;
 	float y;
-};
+}Vector2a, Vector2b;
 
-float GetDistanceBetweenPoints(float x1, float y1, float x2, float y2)
+float GetDistanceBetweenPoints(Vector2 Vector2a, Vector2 Vector2b)
 {
-	return sqrtf(powf(x2 - x1, 2) + powf(y2 - y1, 2));
+	return sqrtf(powf(Vector2b.x - Vector2a.x, 2) + powf(Vector2b.y - Vector2a.y, 2));
 };
 
 

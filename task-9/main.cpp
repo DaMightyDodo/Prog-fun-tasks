@@ -14,18 +14,16 @@ int main()
 
         cout << endl;
     }
-    cout << "(" << xComponents[0] << "," << xComponents[1] << ")" << endl;
-    cout << "(" << yComponents[0] << "," << yComponents[1] << ")" << endl;
+    Vector2a.x = xComponents[0];
+    Vector2a.y = yComponents[0];
 
-    Vector2 pointA;
-    pointA.x = xComponents[0];
-    pointA.y = yComponents[0];
+    Vector2b.x = xComponents[1];
+    Vector2b.y = yComponents[1];
 
-    Vector2 pointB;
-    pointB.x = xComponents[1];
-    pointB.y = yComponents[1];
+    cout << "(" << Vector2a.x << "," << Vector2a.y << ")" << endl;
+    cout << "(" << Vector2b.x << "," << Vector2b.y << ")" << endl;
 
-    cout << "The distance between two points is: "<< GetDistanceBetweenPoints(pointA.x, pointA.y, pointB.x, pointB.y) << endl;
+    cout << "The distance between two points is: "<< GetDistanceBetweenPoints(Vector2a, Vector2b) << endl;
 
     return 0;
 }
