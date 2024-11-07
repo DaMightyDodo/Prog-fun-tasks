@@ -38,7 +38,7 @@ int main() {
         }
         cout << "Guess again: ";
     }
-
+    //Finalize
     if (count == 1)
     {
         cout << "You are on FIRE!! You've guessed correctly first try!!!" << endl;
