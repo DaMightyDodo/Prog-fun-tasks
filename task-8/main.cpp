@@ -16,9 +16,9 @@ int main()
 {
 	while (true)
 	{
-		cout << "Please enter inventory size (1-8) " << endl;
+		cout << "Please enter inventory size (1-16) " << endl;
 		cin >> n;
-		if (cin.fail() || n < 1 || n > 8)
+		if (cin.fail() || n < 1 || n > 16)
 		{
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -76,18 +76,34 @@ int main()
 		else if (command.substr(0, 3) == "set")
 		{
 			int spaceIndex = command.find(' ', 4);
-			slot = stoi(command.substr(4, spaceIndex - 4));
-			int itemId = stoi(command.substr(spaceIndex + 1));
 
-			if (slot >= 0 && slot < n && itemId >= 0 && itemId < (sizeof(items) / sizeof(items[0])))
+			try
 			{
-				inventory[slot] = items[itemId].name;
-				cout << "Set slot " << slot << " to " << inventory[slot] << endl;
+				slot = stoi(command.substr(4, spaceIndex - 4));
+				int itemId = stoi(command.substr(spaceIndex + 1));
+				if (slot >= 0 && slot < n && itemId >= 0 && itemId < (sizeof(items) / sizeof(items[0])))
+				{
+					inventory[slot] = items[itemId].name;
+					cout << "Set slot " << slot << " to " << inventory[slot] << endl;
+				}
+				else
+				{
+					cout << "invalid index or item ID" << endl;
+				}
 			}
-			else
+			catch (const invalid_argument& e)
 			{
-				cout << "invalid index or item ID" << endl;
+				cout << "Please enter a valid number." << endl;
 			}
+			catch (const out_of_range& e)
+			{
+				cout << "Input is out of range" << endl;
+			}
+			catch (...)
+			{
+				cout << "something unexpected happened. Please enter valid index or item ID" << endl;
+			}
+
 		}
 		else if (command == "exit")
 		{
