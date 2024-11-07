@@ -13,27 +13,30 @@ int main()
 	}PlayerDetail;
 
 	cout << "Choose your character: " << endl;
-		for (int i = 0; i < sizeof(PlayerDetail.Class) / sizeof(PlayerDetail.Class[0]); i++)
-		{
-			cout << PlayerDetail.ID[i] << ". " << PlayerDetail.Class[i] << endl;
-		}
+	for (int i = 0; i < sizeof(PlayerDetail.Class) / sizeof(PlayerDetail.Class[0]); i++)
+	{
+		cout << PlayerDetail.ID[i] << ". " << PlayerDetail.Class[i] << endl;
+	}
 	while (true)
 	{ 
 		cin >> PlayerChoose;
-		if (cin.fail() || PlayerChoose < 1 || PlayerChoose > sizeof(PlayerDetail.Class) / sizeof(PlayerDetail.Class[0]))
-		{
-			cout << "Invalid input, try again: " << endl;
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		}
-		else 
-		{
-			break;
-		}
+
+			if (cin.fail() || PlayerChoose < 1 || PlayerChoose > sizeof(PlayerDetail.Class) / sizeof(PlayerDetail.Class[0]))
+			{
+				cout << "Invalid input, try again: " << endl;
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
+			else
+			{
+				break;
+			}
+
 	}
 	cout << "You have selected the " << PlayerDetail.Class[PlayerChoose - 1] << " character class. " << endl;
 	cout << "\n Traveler, state your name: ";
-	cin >> PlayerDetail.Name;
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, PlayerDetail.Name);
 	cout << "Player details:" << endl;
 	cout << "- Name: " << PlayerDetail.Name << endl;
 	cout << "- Class: " << PlayerDetail.Class[PlayerChoose - 1] << endl;
