@@ -1,33 +1,33 @@
 #include <iostream>
 #include <string>
 using namespace std;
-void MakeBox()
-{
-    int count_characters;
+
+void PrintBorder(int length) {
+    for (int i = 0; i < length; i++) {
+        cout << "*";
+    }
+    cout << endl;
+}
+
+void MakeBox(const string& text) {
+    int count_characters = text.length() + 4;
+
+    PrintBorder(count_characters);  // Top border
+
+    cout << "* " << text << " *" << endl;  // Text and side borders
+
+    PrintBorder(count_characters);  // Bottom border
+}
+
+int main() {
     string text;
     cout << "Please input your wall of text: ";
     getline(cin, text);
-    count_characters = text.length() + 4;
-    while (count_characters > 0) //top border
-    {
-        cout << "*";
-        count_characters = count_characters - 1;
-    }
 
-    cout << "\n* " << text << " *" << endl; //the text and sideway border
-
-    count_characters = text.length() + 4;
-    while (count_characters > 0) //bottom border
-    {
-        cout << "*";
-        count_characters = count_characters - 1;
-    }
+    MakeBox(text);
+    return 0;
 }
-    int main()
-    {
-        MakeBox();
-        return 0;
-    }
+
 //For this challenge, produce a program which 
 //prompts the user for a string of text. When
 //this text is entered, the program should:
